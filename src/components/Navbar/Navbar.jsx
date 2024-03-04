@@ -1,0 +1,74 @@
+/* eslint-disable react/prop-types */
+import Darkmode from "../Mode/Darkmode";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+function Navbar({ search, setSearch, location, setLocation }) {
+  return (
+    <div className="header w-full h-100vh grid grid-cols-2 relative">
+      <nav className="col-span-2">
+        <div className="flex flex-row p-20 items-center">
+          <div className="ml-5">
+            <img src="public/assets/desktop/logo.svg" alt="devJobs logo" />
+          </div>
+
+          <div className="ml-auto">
+            <Darkmode />
+          </div>
+        </div>
+      </nav>
+
+      <div className="col-span-2 row-span-1 ">
+        <div className=" bg-white flex flex-row items-center  w-[90%] h-20 absolute bottom-[-18%] left-[6%] rounded-lg">
+          <div className="border-r-[#6E8098] border-r-2 h-full flex-[1%] flex flex-row  items-center justify-center gap-5">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ color: "#5964e0" }}
+            />
+            <input
+              type="text"
+              value={search}
+              placeholder="Filter by title, companies, expertise…"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              className="outline-none text-[20px] font-sans w-[80%] font-normal"
+            />
+          </div>
+
+          <div className=" border-r-[#6E8098] border-r-2 h-full flex flex-row items-center justify-center gap-4  flex-[1%]">
+            <FontAwesomeIcon
+              icon={faLocationDot}
+              style={{ color: "#5964e0" }}
+            />
+            <input
+              type="text"
+              value={location}
+              placeholder="Filter by location…"
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+              className="outline-none text-[20px] font-sans w-[80%] font-normal"
+            />
+          </div>
+          <div className="flex flex-row gap-4 flex-[1%] h-full items-center pl-5">
+            <input
+              type="checkbox"
+              id="tickBox"
+              className="w-[24px] h-[24px] bg-slate-700"
+            />
+            <label htmlFor="tickBox">
+              <p className="font-bold text-[26px]">Full time only</p>
+            </label>
+
+            <button className="bg-[#5964E0] w-[150px] h-[50px] rounded-lg text-white font-bold text-[26px]">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;

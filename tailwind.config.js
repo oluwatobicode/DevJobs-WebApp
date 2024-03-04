@@ -8,7 +8,7 @@ export default {
       lg: "976px",
       xl: "1440px",
     },
-    colors: {},
+
     fontFamily: {
       sans: ["Kumbh Sans", "sans-serif;"],
     },
