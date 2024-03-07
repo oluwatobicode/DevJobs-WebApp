@@ -1,18 +1,30 @@
 /* eslint-disable react/prop-types */
-import Navbar from "../components/Navbar/Navbar";
-import JobsList from "../components/Jobs/JobsList";
 
-const Jobs = ({ search, setSearch, location, setLocation, job, setJob }) => {
+import JobsList from "../components/Jobs/JobsList";
+import Search from "../components/Search/Search";
+
+const Jobs = ({
+  search,
+  setSearch,
+  location,
+  setLocation,
+  job,
+  setJob,
+  jobDescription,
+  handleFilterBox,
+  fullTime,
+}) => {
   return (
     <div>
-      <Navbar
+      <Search
         search={search}
         setSearch={setSearch}
         location={location}
         setLocation={setLocation}
+        handleFilterBox={handleFilterBox}
+        fullTime={fullTime}
       />
-
-      <JobsList job={job} setJob={setJob} />
+      <JobsList job={job} setJob={setJob} jobDescription={jobDescription} />
     </div>
   );
 };

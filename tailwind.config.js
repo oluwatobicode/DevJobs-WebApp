@@ -12,6 +12,13 @@ export default {
     fontFamily: {
       sans: ["Kumbh Sans", "sans-serif;"],
     },
+
+    extend: {
+      fontSize: {
+        heading: "24px",
+        body: "16px",
+      },
+    },
   },
   plugins: [],
 };

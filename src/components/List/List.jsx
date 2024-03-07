@@ -1,25 +1,39 @@
 /* eslint-disable react/prop-types */
-function List({ aJob }) {
-  const { logoBackground } = aJob;
-  console.log(`bg-[${logoBackground}]`);
-  return (
-    <div className="bg-white col-span-1 rounded-md relative mb-10">
-      <div
-        className={`bg-[${logoBackground}]   w-[50px] h-[50px] absolute top-[-10%] flex items-center justify-center rounded-lg`}
-      >
-        <img src={aJob.logo} alt={aJob.company} />
-      </div>
+import { Link } from "react-router-dom";
+function List({ aJob, jobDescription }) {
+  const logoBackgroundColor = aJob.logoBackground;
 
-      <div className="m-5">
-        <div className="flex flex-row">
-          <li>{aJob.postedAt}</li>
-          <li>{aJob.contract}</li>
+  return (
+    <Link
+      to="/Detail"
+      onClick={() => {
+        jobDescription(aJob);
+      }}
+    >
+      <div className="bg-white col-span-1 flex items-center  justify-start h-[250px] w-auto rounded-md relative mb-10 pl-5">
+        <div
+          className={`bg-[${logoBackgroundColor}] w-[50px]   h-[50px] absolute top-[-10%] flex items-center justify-center rounded-lg`}
+        >
+          <img src={aJob.logo} alt={aJob.company} />
         </div>
-        <div className="text-xl">{aJob.position}</div>
-        <div className="text-[18px]">{aJob.company}</div>
-        <div className="text-[16px] text-[#5964E0]">{aJob.location}</div>
+
+        <div className="m-5 flex flex-col gap-3">
+          <div className="flex flex-row gap-5 text-body text-[#6E8098]">
+            <li className="list-none">{aJob.postedAt}</li>
+            <li>{aJob.contract}</li>
+          </div>
+          <div className="">
+            <h1 className="text-heading">{aJob.position}</h1>
+          </div>
+          <div className="text-[18px] text-[#6E8098]">
+            <p>{aJob.company}</p>
+          </div>
+          <div className="text-[16px] text-[#5964E0]">
+            <p>{aJob.location}</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
