@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Darkmode from "../Mode/Darkmode";
 
-function Navbar() {
+function Navbar({ toggleDarkMode }) {
   return (
-    <div className="header w-full h-100vh grid grid-cols-2 ">
+    <div className="header w-full h-100vh grid grid-cols-2 bg-[#F4F6F8] dark:bg-[#121721]">
       <nav className="col-span-2">
         <div className="flex flex-row p-20 items-center">
           <div className="ml-5">
@@ -10,7 +11,7 @@ function Navbar() {
           </div>
 
           <div className="ml-auto">
-            <Darkmode />
+            <Darkmode toggleDarkMode={toggleDarkMode} />
           </div>
         </div>
       </nav>

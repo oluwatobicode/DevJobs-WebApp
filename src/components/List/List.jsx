@@ -10,9 +10,9 @@ function List({ aJob, jobDescription }) {
         jobDescription(aJob);
       }}
     >
-      <div className="bg-white col-span-1 flex items-center  justify-start h-[250px] w-auto rounded-md relative mb-10 pl-5">
+      <div className="bg-white dark:bg-[#19202D] col-span-1 flex items-center  justify-start h-[250px] w-auto rounded-md relative mb-10 pl-5">
         <div
-          className={`bg-[${logoBackgroundColor}] w-[50px]   h-[50px] absolute top-[-10%] flex items-center justify-center rounded-lg`}
+          className={`bg-[${logoBackgroundColor}] bg-[hsl(36,87%,49%)] w-[50px]   h-[50px] absolute top-[-10%] flex items-center justify-center rounded-lg`}
         >
           <img src={aJob.logo} alt={aJob.company} />
         </div>
@@ -23,7 +23,9 @@ function List({ aJob, jobDescription }) {
             <li>{aJob.contract}</li>
           </div>
           <div className="">
-            <h1 className="text-heading">{aJob.position}</h1>
+            <h1 className="text-heading text-3xl font-bold  font-sans dark:text-[#FFFFFF]">
+              {aJob.position}
+            </h1>
           </div>
           <div className="text-[18px] text-[#6E8098]">
             <p>{aJob.company}</p>

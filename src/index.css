@@ -4,34 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-Kumbh Sans
-.lightMode{
-jobText :  white,
-timePosted : #6E8098,
-jobLongetivity : #6E8098,
-jobCompany : #6E8098,
-jobLocation : #5964E0
-jobCard : white,
-
-//descriptionPage
-jobDescriptionBody : #6E8098,
-jobCaompayCard : white,
-jobCompanyWebsite : #6E8098,
-JobComapnySiteBox:#C9C9C9,
-jobDescriptionHeading : black,
-jobDescriptionLocation : #5964E0
-JobDescriptiontimePosted : #6E8098,
-jobDescriptionLongetivity : #6E8098,
-
-
+* {
+  @apply transition-colors duration-100;
 }
-
-
-.darkMode{
-
-}
-
-
-
-*/

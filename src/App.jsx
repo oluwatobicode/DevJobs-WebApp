@@ -8,12 +8,12 @@ import jobsData from "../Data/data.json";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  let jobs = [];
-  jobs = jobsData;
-
+  // let jobs = [];
+  // jobs = jobsData;
+  const [darkMode, setDarkMode] = useState(false);
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
-  const [job, setJob] = useState([]);
+  const [jobs, setJob] = useState(jobsData || []);
   const [jobDesc, setJobDesc] = useState([]);
   const [fullTime, setfullTime] = useState(true);
   const [checkBox, setCheckBox] = useState("");
@@ -22,7 +22,7 @@ function App() {
     setJobDesc(name);
   }
 
-  function handleFilterBox(data) {
+  function handleFilterBox(e, data) {
     if (data === "Full Time") {
       if (fullTime === true) {
         setCheckBox(data);
@@ -32,18 +32,29 @@ function App() {
     }
   }
 
-  jobs = jobsData.filter(
-    (job) =>
-      job.position.toLowerCase().includes(search.toLowerCase()) &&
-      job.location.toLowerCase().includes(location.toLowerCase()) &&
-      job.contract.toLowerCase().includes(checkBox.toLowerCase())
-  );
+  function filterAllJobs() {
+    console.log("got here");
+    const filterdData = jobsData.filter(
+      (job) =>
+        job.position.toLowerCase().includes(search.toLowerCase()) &&
+        job.location.toLowerCase().includes(location.toLowerCase()) &&
+        job.contract.toLowerCase().includes(checkBox.toLowerCase())
+    );
+    setJob(filterdData);
+  }
+
+  function toggleDarkMode() {
+    setDarkMode(!darkMode);
+    console.log(darkMode);
+    console.log("working");
+    console.log(`${darkMode && "dark"}`);
+  }
 
   //Senior Software Enginner
 
   return (
-    <h1 className="text-3xl font-bold  font-sans ">
-      <Navbar />
+    <div className={`${darkMode && "dark"}`}>
+      <Navbar toggleDarkMode={toggleDarkMode} />
       <BrowserRouter>
         <Routes>
           <Route
@@ -59,13 +70,14 @@ function App() {
                 jobDescription={jobDescription}
                 handleFilterBox={handleFilterBox}
                 fullTime={fullTime}
+                filterAllJobs={filterAllJobs}
               />
             }
           />
           <Route path="/Detail" element={<JobDetails jobDesc={jobDesc} />} />
         </Routes>
       </BrowserRouter>
-    </h1>
+    </div>
   );
 }
 

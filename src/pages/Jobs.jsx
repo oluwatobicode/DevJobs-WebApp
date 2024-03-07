@@ -13,6 +13,7 @@ const Jobs = ({
   jobDescription,
   handleFilterBox,
   fullTime,
+  filterAllJobs,
 }) => {
   return (
     <div>
@@ -23,6 +24,7 @@ const Jobs = ({
         setLocation={setLocation}
         handleFilterBox={handleFilterBox}
         fullTime={fullTime}
+        filterAllJobs={filterAllJobs}
       />
       <JobsList job={job} setJob={setJob} jobDescription={jobDescription} />
     </div>
