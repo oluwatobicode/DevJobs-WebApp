@@ -56,7 +56,7 @@ const Search = ({
             />
             <label htmlFor="tickBox">
               <p className="font-bold text-[25px] dark:text-[#ffff]">
-                Full Time Only
+                Full Time
               </p>
             </label>
 

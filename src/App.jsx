@@ -45,12 +45,11 @@ function App() {
 
   function toggleDarkMode() {
     setDarkMode(!darkMode);
-    console.log(darkMode);
-    console.log("working");
-    console.log(`${darkMode && "dark"}`);
   }
 
-  //Senior Software Enginner
+  if (search.length < 0 || location.length < 0) {
+    return jobs;
+  }
 
   return (
     <div className={`${darkMode && "dark"}`}>
